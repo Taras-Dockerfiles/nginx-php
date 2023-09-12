@@ -5,7 +5,7 @@ ARG user=user
 ARG appdir=application
 ARG php_version=8.2
 ARG node_version=20
-ARG vim_tag=v9.0.1677
+ARG vim_tag=v9.0.1897
 ARG nano_great_version=7
 ARG nano_version=7.2
 ARG msodbc_version=18
@@ -35,7 +35,7 @@ RUN echo '';\
     echo 'Installing common packages ...';\
     echo '================================';\
     echo '';\
-    apt-get install -y --no-install-recommends sudo expect bash-completion build-essential openssl libssl-dev net-tools iputils-ping nmap lsof telnet cron rsyslog zip unzip p7zip-full curl wget locales git zsh gosu ca-certificates less rename screen sntp tshark gpg-agent;\
+    apt-get install -y --no-install-recommends sudo expect bash-completion build-essential openssl libssl-dev net-tools iputils-ping nmap lsof telnet cron rsyslog zip unzip p7zip-full curl wget locales git zsh gosu ca-certificates less rename screen sntp tshark gpg gpg-agent;\
     echo '';\
     echo '================================';\
     echo 'Setting the locale ...';\
@@ -62,8 +62,10 @@ RUN echo '';\
     echo 'Installing Node.js and npm ...';\
     echo '================================';\
     echo '';\
-    curl -sL https://deb.nodesource.com/setup_${node_version}.x | sudo -E bash -;\
-    apt-get install -y nodejs;\
+    curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg;\
+    NODE_MAJOR=${node_version};\
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list;\
+    apt-get update && apt-get install -y nodejs;\
     npm i -g npm;\
     echo '';\
     echo '================================';\
