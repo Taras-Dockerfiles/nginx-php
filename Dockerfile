@@ -5,7 +5,7 @@ ARG user=user
 ARG appdir=application
 ARG php_version=8.2
 ARG node_version=20
-ARG vim_tag=v9.0.1897
+ARG vim_tag=v9.0.1927
 ARG nano_great_version=7
 ARG nano_version=7.2
 ARG msodbc_version=18
@@ -296,7 +296,16 @@ RUN echo '';\
     mkdir /home/${user}/${appdir};\
     chown -RHh ${user}:${user} /home/${user}/${appdir};\
     ln -s /home/${user}/${appdir} /var/www/html;\
-    chown -RHh ${user}:${user} /var/www/html/${appdir}
+    chown -RHh ${user}:${user} /var/www/html/${appdir};\
+    echo '';\
+    echo '==============================================';\
+    echo 'Adding PHPUnit and Laravel testing scripts ...';\
+    echo '==============================================';\
+    echo '';\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/pat -o /usr/local/bin/pat;\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/xpat -o /usr/local/bin/xpat;\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/xpu -o /usr/local/bin/xpu;\
+    /bin/bash -c "chmod +x /usr/local/bin/{pat,xpat,xpu}"
 
 USER ${user}
 RUN echo '';\
@@ -304,12 +313,12 @@ RUN echo '';\
     echo 'Installing Oh My Zsh ...';\
     echo '================================';\
     echo '';\
-    echo Y | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";\
-    curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/home.bashrc -o /home/${user}/.bashrc;\
-    curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/home.vimrc -o /home/${user}/.vimrc;\
-    curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/home.zshrc -o /home/${user}/.zshrc;\
-    curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/myzshtheme.zsh-theme -o /home/${user}/.oh-my-zsh/themes/myzshtheme.zsh-theme;\
-    curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/myrootzshtheme.zsh-theme -o /home/${user}/.oh-my-zsh/themes/myrootzshtheme.zsh-theme;\
+    echo Y | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/home.bashrc -o /home/${user}/.bashrc;\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/home.vimrc -o /home/${user}/.vimrc;\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/home.zshrc -o /home/${user}/.zshrc;\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/myzshtheme.zsh-theme -o /home/${user}/.oh-my-zsh/themes/myzshtheme.zsh-theme;\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/myrootzshtheme.zsh-theme -o /home/${user}/.oh-my-zsh/themes/myrootzshtheme.zsh-theme;\
     sed -i "s/ZSH=\"\/home\/user\/.oh-my-zsh\"/ZSH=\"\/home\/${user}\/.oh-my-zsh\"/g" /home/${user}/.zshrc;\
     echo '';\
     echo '==================================================================================';\
@@ -326,9 +335,9 @@ RUN echo '';\
     echo 'export PATH="$PATH:/opt/mssql-tools${msodbc_version}/bin"' >> /home/${user}/.zshrc
 USER root
 RUN ln -s /home/${user}/.oh-my-zsh /root;\
-    curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/root.bashrc -o /root/.bashrc;\
-    curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/root.vimrc -o /root/.vimrc;\
-    curl -L https://raw.github.com/Wujidadi/Ubuntu-RC/main/root.zshrc -o /root/.zshrc;\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/root.bashrc -o /root/.bashrc;\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/root.vimrc -o /root/.vimrc;\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/root.zshrc -o /root/.zshrc;\
     touch /root/.zsh_history;\
     touch /home/${user}/.zsh_history && chown ${user}:${user} /home/${user}/.zsh_history;\
     echo '';\
