@@ -8,6 +8,20 @@ Base on Ubuntu, with Nginx, PHP, Node.js and other softwares tuned and installed
 
 > For older dockerfiles earlier than version 2.8, see the old [Wujidadi Dockerfiles](https://github.com/Wujidadi/Dockerfiles) repository.
 
+### 2.10 (2023-10-02)
+
+* OS: **Ubuntu 22.04 LTS**
+* Main software versions:
+  * **Vim 9.0.1968**
+  * **GNU Nano 7.2**
+  * **Nginx 1.25.1**
+  * **PHP 8.2.10**
+  * **Composer 2.6.4**
+  * **Swoole 5.1.0**
+  * **Microsoft ODBC Driver for SQL Server 18.3.1.1**
+  * **Node.js 20.8.0**
+    * **npm 10.1.0**
+
 ### 2.9.1 (2023-09-23)
 
 * `docker buildx` commands: (`$D` is a custom alias of the log directory)

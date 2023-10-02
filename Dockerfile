@@ -5,11 +5,11 @@ ARG user=user
 ARG appdir=application
 ARG php_version=8.2
 ARG node_version=20
-ARG vim_tag=v9.0.1927
+ARG vim_tag=v9.0.1968
 ARG nano_great_version=7
 ARG nano_version=7.2
 ARG msodbc_version=18
-ARG swoole_version=5.0.3
+ARG swoole_version=5.1.0
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=en_US.UTF-8 \
