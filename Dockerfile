@@ -3,7 +3,7 @@ LABEL MAINTAINER="wujidadi@gmail.com"
 
 ARG user=user
 ARG appdir=application
-ARG php_version=8.2
+ARG php_version=8.1
 ARG node_version=21
 ARG vim_tag=v9.0.2081
 ARG nano_great_version=7

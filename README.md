@@ -8,19 +8,19 @@ Base on Ubuntu, with Nginx, PHP, Node.js and other softwares tuned and installed
 
 > For older dockerfiles earlier than version 2.8, see the old [Wujidadi Dockerfiles](https://github.com/Wujidadi/Dockerfiles) repository.
 
-### 2.11 (2023-11-01)
+### 2.11 (2023-11-01), 2.1.1 (2023-11-06)
 
 * OS: **Ubuntu 22.04 LTS**
 * Main software versions:
   * **Vim 9.0.2081**
   * **GNU Nano 7.2**
   * **Nginx 1.25.3**
-  * **PHP 8.2.12**
+  * **PHP 8.2.12** (2.11), **PHP 8.1.25** (2.1.1)
   * **Composer 2.6.5**
   * **Swoole 5.1.0**
   * **Microsoft ODBC Driver for SQL Server 18.3.2.1**
   * **Node.js 21.1.0**
-    * **npm 10.2.2**
+    * **npm 10.2.2** (2.11), **npm 10.2.3** (2.1.1)
 
 ### 2.10 (2023-10-02)
 
