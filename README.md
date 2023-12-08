@@ -8,6 +8,24 @@ Base on Ubuntu, with Nginx, PHP, Node.js and other softwares tuned and installed
 
 > For older dockerfiles earlier than version 2.8, see the old [Wujidadi Dockerfiles](https://github.com/Wujidadi/Dockerfiles) repository.
 
+### 2.12-php8.1, 2.12-php8.2, 2.12-php8.3 (2023-12-09)
+
+* Starting from this version, different images are built based on each PHP 8 version.
+* Laravel route list path quick script `parla` is added.
+* OS: **Ubuntu 22.04 LTS**
+* Main software versions:
+  * **Vim 9.0.2153**
+  * **GNU Nano 7.2**
+  * **Nginx 1.25.3**
+  * **PHP 8.1.26** / **PHP 8.2.13** / **PHP 8.3.0**
+  * **Composer 2.6.6**
+  * **Swoole 5.1.1**  
+    Swoole 5.1.0 contains an error that prevents the installation of many PHP packages and causes a Segmentation fault error when PHP itself is invoked. [(ref)](https://github.com/oerdnj/deb.sury.org/issues/2058#issuecomment-1836094319)  
+    If not upgraded to Swoole version 5.1.1, the entire PHP language will become nearly unusable.
+  * **Microsoft ODBC Driver for SQL Server 18.3.2.1**
+  * **Node.js 21.4.0**
+    * **npm 10.2.5**
+
 ### 2.11 (2023-11-01)
 
 * OS: **Ubuntu 22.04 LTS**

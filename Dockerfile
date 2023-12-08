@@ -3,13 +3,13 @@ LABEL MAINTAINER="wujidadi@gmail.com"
 
 ARG user=user
 ARG appdir=application
-ARG php_version=8.2
+ARG php_version=8.3
 ARG node_version=21
-ARG vim_tag=v9.0.2081
+ARG vim_tag=v9.0.2153
 ARG nano_great_version=7
 ARG nano_version=7.2
 ARG msodbc_version=18
-ARG swoole_version=5.1.0
+ARG swoole_version=5.1.1
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=en_US.UTF-8 \
@@ -302,10 +302,11 @@ RUN echo '';\
     echo 'Adding PHPUnit and Laravel testing scripts ...';\
     echo '==============================================';\
     echo '';\
+    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/parla -o /usr/local/bin/parla;\
     curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/pat -o /usr/local/bin/pat;\
     curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/xpat -o /usr/local/bin/xpat;\
     curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/xpu -o /usr/local/bin/xpu;\
-    /bin/bash -c "chmod +x /usr/local/bin/{pat,xpat,xpu}"
+    /bin/bash -c "chmod +x /usr/local/bin/{parla,pat,xpat,xpu}"
 
 USER ${user}
 RUN echo '';\
