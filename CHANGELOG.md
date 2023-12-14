@@ -1,5 +1,21 @@
 # Change Log
 
+## 2.12.1-php8.1, 2.12.1-php8.2, 2.12.1-php8.3 (2023-12-15)
+
+* OS: **Ubuntu 22.04 LTS**
+* Main software versions:
+  - **Vim 9.0.2160**
+  - **GNU Nano 7.2**
+  - **Nginx 1.25.3**
+  - **PHP 8.1.26** / **PHP 8.2.13** / **PHP 8.3.0**
+  - **Composer 2.6.6**
+  - **Swoole 5.1.1**
+  - **Microsoft ODBC Driver for SQL Server 18.3.2.1**
+  - **Node.js 21.4.0**
+    + **npm 10.2.5**
+* Password of `user` is changed to `NPUser` (formerly `APUser`).
+* This tiny version is built mainly for fixing the bug in `parla` command.
+
 ## 2.12-php8.1, 2.12-php8.2, 2.12-php8.3 (2023-12-09)
 
 * OS: **Ubuntu 22.04 LTS**
