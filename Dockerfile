@@ -5,7 +5,7 @@ ARG user=user
 ARG appdir=application
 ARG php_version=8.3
 ARG node_version=21
-ARG vim_tag=v9.0.2153
+ARG vim_tag=v9.0.2160
 ARG nano_great_version=7
 ARG nano_version=7.2
 ARG msodbc_version=18
@@ -50,7 +50,7 @@ RUN echo '';\
     useradd --create-home --shell /bin/bash ${user};\
     adduser ${user} sudo;\
     echo 'root:RootUser' | chpasswd;\
-    echo "${user}:APUser" | chpasswd;\
+    echo "${user}:NPUser" | chpasswd;\
     echo '';\
     echo '================================';\
     echo 'Installing Supervisor ...';\
