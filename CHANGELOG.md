@@ -1,5 +1,20 @@
 # Change Log
 
+## 2.14-php8.1, 2.14-php8.2, 2.14-php8.3 (2023-02-01)
+
+* OS: **Ubuntu 22.04 LTS**
+* Main software versions:
+  - **Vim 9.1.0067**
+  - **GNU Nano 7.2**
+  - **Nginx 1.25.3**
+  - **PHP 8.1.27** / **PHP 8.2.15** / **PHP 8.3.2**
+  - **Composer 2.6.6**
+  - **Swoole 5.1.2**
+  - **Microsoft ODBC Driver for SQL Server 18.3.2.1**
+  - **Node.js 21.6.1**
+    + **npm 10.4.0**
+* Default text editor is changed to Vim.
+
 ## 2.13-php8.1, 2.13-php8.2, 2.13-php8.3 (2024-01-06)
 
 * OS: **Ubuntu 22.04 LTS**
