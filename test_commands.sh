@@ -6,10 +6,10 @@ docker buildx rm multiarch # Official Docker has to run
 docker buildx create --name multiarch --use
 
 # Build the Docker image
-docker buildx build --no-cache --progress=plain --push --platform linux/amd64,linux/arm64/v8 --rm -t wujidadi/nginx-php:2.13-php8.1 . 2>&1 | tee $D/docker-build-np-2.13-php8.1.log
+docker buildx build --no-cache --progress=plain --push --platform linux/amd64,linux/arm64/v8 --rm -t wujidadi/nginx-php:2.14-php8.1 . 2>&1 | tee $D/docker-build-np-2.14-php8.1.log
 
 # Create test container and delete it finally
-docker run -d -p 50000:80 -it --name Test wujidadi/nginx-php:2.13-php8.1
+docker run -d -p 50000:80 -it --name Test wujidadi/nginx-php:2.14-php8.1
 # docker exec -it Test zsh
 docker exec -it Test vim --version | grep 'Included patches'
 docker exec -it Test nano -V | grep 'GNU nano, version'
