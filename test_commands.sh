@@ -6,10 +6,10 @@ docker buildx rm multiarch # Official Docker has to run
 docker buildx create --name multiarch --use
 
 # Build the Docker image
-docker buildx build --no-cache --progress=plain --push --platform linux/amd64,linux/arm64/v8 --rm -t wujidadi/nginx-php:2.15-php8.3 -t wujidadi/nginx-php:latest . 2>&1 | tee $D/docker-build-np-2.15-php8.3.log
+docker buildx build --no-cache --progress=plain --push --platform linux/amd64,linux/arm64/v8 --rm -t wujidadi/nginx-php:3.0-php8.3 -t wujidadi/nginx-php:latest . 2>&1 | tee $D/docker-build-np-3.0-php8.3.log
 
 # Create testing container
-docker run -d -p 50000:80 -it --name Test wujidadi/nginx-php:2.15-php8.3
+docker run -d -p 50000:80 -it --name Test wujidadi/nginx-php:3.0-php8.3
 
 # Test the container outside itself by each command
 docker exec -it Test vim --version | grep 'Included patches'
