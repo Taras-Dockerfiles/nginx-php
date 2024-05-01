@@ -1,11 +1,11 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 LABEL MAINTAINER="wujidadi@gmail.com"
 
 ARG user=user
 ARG appdir=application
 ARG php_version=8.3
-ARG node_version=21
-ARG vim_tag=v9.1.0252
+ARG node_version=22
+ARG vim_tag=v9.1.0384
 ARG nano_great_version=7
 ARG nano_version=7.2
 ARG msodbc_version=18
@@ -227,21 +227,21 @@ RUN echo '';\
     phpenmod swoole;\
     cd / && rm -rf /swoole-src-${swoole_version};\
     echo '';\
-    echo '======================================================================';\
-    echo 'Installing Microsoft SQL Server Driver for PHP with Microsoft ODBC ...';\
-    echo '======================================================================';\
-    echo '';\
-    curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -;\
-    curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list;\
-    apt-get update;\
-    ACCEPT_EULA=Y apt-get install -y msodbcsql${msodbc_version};\
-    ACCEPT_EULA=Y apt-get install -y mssql-tools${msodbc_version};\
-    apt-get -y install unixodbc-dev;\
-    pecl install sqlsrv pdo_sqlsrv;\
-    echo "; priority=20\nextension=sqlsrv.so\n" > /etc/php/${php_version}/mods-available/sqlsrv.ini;\
-    echo "; priority=20\nextension=pdo_sqlsrv.so\n" > /etc/php/${php_version}/mods-available/pdo_sqlsrv.ini;\
-    phpenmod sqlsrv pdo_sqlsrv;\
-    echo '';\
+    # echo '======================================================================';\
+    # echo 'Installing Microsoft SQL Server Driver for PHP with Microsoft ODBC ...';\
+    # echo '======================================================================';\
+    # echo '';\
+    # curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -;\
+    # curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list;\
+    # apt-get update;\
+    # ACCEPT_EULA=Y apt-get install -y msodbcsql${msodbc_version};\
+    # ACCEPT_EULA=Y apt-get install -y mssql-tools${msodbc_version};\
+    # apt-get -y install unixodbc-dev;\
+    # pecl install sqlsrv pdo_sqlsrv;\
+    # echo "; priority=20\nextension=sqlsrv.so\n" > /etc/php/${php_version}/mods-available/sqlsrv.ini;\
+    # echo "; priority=20\nextension=pdo_sqlsrv.so\n" > /etc/php/${php_version}/mods-available/pdo_sqlsrv.ini;\
+    # phpenmod sqlsrv pdo_sqlsrv;\
+    # echo '';\
     echo '================================';\
     echo 'Installing MySQL Client ...';\
     echo '================================';\
@@ -299,17 +299,7 @@ RUN echo '';\
     mkdir /home/${user}/${appdir};\
     chown -RHh ${user}:${user} /home/${user}/${appdir};\
     ln -s /home/${user}/${appdir} /var/www/html;\
-    chown -RHh ${user}:${user} /var/www/html/${appdir};\
-    echo '';\
-    echo '==============================================';\
-    echo 'Adding PHPUnit and Laravel testing scripts ...';\
-    echo '==============================================';\
-    echo '';\
-    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/parla -o /usr/local/bin/parla;\
-    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/pat -o /usr/local/bin/pat;\
-    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/xpat -o /usr/local/bin/xpat;\
-    curl -L https://raw.githubusercontent.com/Wujidadi/Ubuntu-RC/main/bin/xpu -o /usr/local/bin/xpu;\
-    /bin/bash -c "chmod +x /usr/local/bin/{parla,pat,xpat,xpu}"
+    chown -RHh ${user}:${user} /var/www/html/${appdir}
 
 USER ${user}
 RUN echo '';\

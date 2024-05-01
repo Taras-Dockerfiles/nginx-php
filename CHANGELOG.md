@@ -1,5 +1,22 @@
 # Change Log
 
+## 3.0-php8.1, 3.0-php8.2, 3.0-php8.3 (2023-05-01)
+
+* OS: **Ubuntu 24.04 LTS**
+  - Great version number of the image jumps to **3** for upgrading from 22.04 LTS to **24.04 LTS**.
+* Main software versions:
+  - **Vim 9.1.0384**
+  - **GNU Nano 7.2**
+  - **Nginx 1.25.5**
+  - **PHP 8.3.6**  
+    For the supporting problem of Ubuntu 24.04 LTS, only PHP 8.3.6 is used for updating in this version.
+  - **Composer 2.7.4**
+  - **Swoole 5.1.2**
+  - ~~**Microsoft ODBC Driver for SQL Server 18.3.3.1**~~  
+    Microsoft ODBC Driver for SQL Server for Ubuntu 24.04 LTS is not available yet when this image is built, so we remove it from our image temporarily.
+  - **Node.js 22.0.0**
+    + **npm 10.7.0**
+
 ## 2.15-php8.1, 2.15-php8.2, 2.15-php8.3 (2023-04-02)
 
 * OS: **Ubuntu 22.04 LTS**
